@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruta Escolar Montenegro</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f1c40f">
+</head>
+<body>
+
+<header>
+<div id="gps-indicator" class="gps-off">🔴 Esperando GPS...</div>
+<h1>🚌 Ruta Escolar Montenegro</h1>
+</header>
+
+<section class="config">
+<select id="filtro-ruta">
+<option value="Bachillerato">Bachillerato</option>
+<option value="Primaria">Primaria</option>
+<option value="Transicion">Transición</option>
+<option value="Especial">Ruta Especial</option>
+</select>
+</section>
+
+<div id="alerta-barrio" class="alerta-gps" style="display:none;">
+<p>📍 Sector actual: <b id="nombre-sector">---</b></p>
+<button id="btnAviso" class="btn-masivo">📢 Avisar a todo el barrio</button>
+</div>
+
+<main id="contenedor-estudiantes"></main>
+
+<script src="barrios.js"></script>
+<script src="app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+</body>
+</html>
